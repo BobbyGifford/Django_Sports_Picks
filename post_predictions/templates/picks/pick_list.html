@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% for pick in pick_list %}
+    <hr>
+        <div style="text-align: center;">
+            <h1>{{ pick.prediction }}</h1>
+            <h4>{{ pick.category }}</h4>
+            <h6>Created By: {{ pick.user }}</h6>
+            <span><button class="btn btn-info">test</button></span>
+        </div>
+    {% endfor %}
+
+{% endblock %}

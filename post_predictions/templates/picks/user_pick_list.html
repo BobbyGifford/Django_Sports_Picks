@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>My Picks</h1>
+<hr>
+    {% for pick in pick_list %}
+        {% if pick.user.username == user.username %}
+        <h1>{{ pick.prediction }}</h1>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
