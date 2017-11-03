@@ -20,15 +20,17 @@
     
     <nav class="navbar" role="navigation" id="navbar">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">Sports Picks</a>
+            <a class="navbar-brand" href="{% url 'picks:pick_list' %}">Sports Picks</a>
             <ul class="nav navbar-nav navbar-right">
-            <li><a href="{% url 'picks:pick_list' %}" class="btn btn-simple">Full Picks</a></li>                                
                 {% if user.is_authenticated %}
-            <li><a href="{% url 'picks:create' %}" class="btn btn-simple">Create</a></li>
-            <li><a href="{% url 'picks:pick_list_filter' %}" class="btn btn-simple">{{ user.username }}</a></li>
+                <li><a href="{% url 'picks:category_list' category='MLB' %}" class="btn btn-simple">MLB</a></li>                                
+            <li><a href="{% url 'picks:category_list' category='UFC' %}" class="btn btn-simple">UFC</a></li>                                
+            <li><a href="{% url 'picks:category_list' category='NCAAF' %}" class="btn btn-simple">NCAAF</a></li>                                
+            <li><a href="{% url 'picks:category_list' category='NFL' %}" class="btn btn-simple">NFL</a></li>                
+            <li><a href="{% url 'picks:pick_list_filter' username=user.username %}" class="btn btn-simple">{{ user.username }}'s picks</a></li>
+            <li><a href="{% url 'picks:create' %}" class="btn btn-simple">Create</a></li>            
             <li><a href="{% url 'accounts:logout' %}" class="btn btn-simple">Log out</a></li>            
                 {% else %}
-            <li><a href="{% url 'picks:full_list' %}"class="btn btn-simple">List</a></li>
             <li><a href="{% url 'accounts:login' %}" class="btn btn-simple">Log in</a></li>
             <li><a href="{% url 'accounts:signup' %}" class="btn btn-simple">Sign up</a></li>
                 {% endif %}

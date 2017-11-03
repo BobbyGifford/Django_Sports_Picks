@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="text-align: center;">
+  
+<h1>Delete Prediction:</h1>
+<h3>{{pick.prediction}}</h3>
+
+<form method="post">
+  {% csrf_token %}
+  <input type="submit" class="btn btn-danger" value="Delete">
+  <a href="{% url 'picks:pick_list' %} ">Cancel</a>
+</form>
+
+</div>
+
+{% endblock %}

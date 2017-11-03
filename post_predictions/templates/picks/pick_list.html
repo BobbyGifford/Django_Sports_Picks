@@ -2,14 +2,18 @@
 
 {% block content %}
 
+<h1 style="text-align: center;">All Picks</h1>
     {% for pick in pick_list %}
     <hr>
         <div style="text-align: center;">
             <h1>{{ pick.prediction }}</h1>
             <h4>{{ pick.category }}</h4>
-            <h6>Created By: {{ pick.user }}</h6>
-            <span><button class="btn btn-info">test</button></span>
-        </div>
+            <h5>Created By: {{ pick.user }}</h5>
+            {% if pick.user.username == user.username %}
+            <p><a class='btn btn-info' href="{% url 'picks:update' pk=pick.pk %}">Update</a>
+            <a class="btn btn-danger" href="{% url 'picks:delete' pk=pick.pk %}">Delete</a></p>        
+            {% endif %}
+            </div>
     {% endfor %}
 
 {% endblock %}

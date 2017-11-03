@@ -3,7 +3,6 @@ from .models import Pick
 
 
 class CreatePickForm(forms.ModelForm):
-    # CATEGORIES = ('NFL', 'NCAAF', 'MLB', 'UFC')
 
     class Meta:
         model = Pick
